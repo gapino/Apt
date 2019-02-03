@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="#"><img src="~/Content/img/ana.jpg" class="img-circle" width="80"></a></p>
+            <h5 class="centered">Ana Amelia</h5>
+            <li class="mt">
+                <a class="active" href="/Apto/Home/Index">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-users"></i>
+                    <span>Pessoas</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/Persona/Index">Lista de Pessoas</a></li>
+                    <li><a href="/Apto/Persona/Create">Incluir Pessoa</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-home"></i>
+                    <span>Apartamentos</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/AptSolo/Index">Lista de Apartamentos</a></li>
+                    <li><a href="/Apto/AptSolo/Create">Incluir Apartamento</a></li>
+                    <li><a href="/Apto/Apt/Index">Apartamentos Disponíveis</a></li>
+                    <li><a href="/Apto/Apt/Index1">Apartamentos Alugados</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!--sidebar end-->
+<!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-9 main-chart">
+
+                <div class="border-head">
+                    <h3>ÁREA DE ADMINISTRAÇÃO</h3>
+                </div>
+
+
+                <div class="row mt">
+                    <!-- SERVER STATUS PANELS -->
+                    <div class="col-md-4 col-sm-4 mb">
+                        <div class="grey-panel pn donut-chart">
+                            <div class="grey-header">
+                                <h5>Pessoas</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-user fa-3x"></i></h1>
+                            <h5 class="mt"></h5>
+
+                            <a href="/Apto/Persona/"><button class="btn btn-small btn-theme02">Gerenciar</button></a>
+                        </div>
+                        <!-- /grey-panel -->
+                    </div>
+                    <!-- /col-md-4-->
+                    <div class="col-md-4 col-sm-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Apartamentos</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-home fa-3x"></i></h1>
+                            <h5 class="mt"></h5>
+
+                            <a href="/Apto/AptSolo/"><button class="btn btn-small btn-theme03">Gerenciar</button></a>
+                        </div>
+                        <!--  /darkblue panel -->
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-4 col-sm-4 mb">
+                        <!-- REVENUE PANEL -->
+                        <div class="green-panel pn">
+                            <div class="green-header">
+                                <h5>Alugues</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-key fa-3x"></i></h1>
+                            <h5 class="mt"></h5>
+
+                            <a href="/Apto/Apt/Index"><button class="btn btn-small btn-theme04">Gerenciar</button></a>
+                        </div>
+                    </div>
+
+                    <!-- /col-md-4 -->
+                </div>
+                <!-- /row -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 mb">
+                        <!-- REVENUE PANEL -->
+                        <div class="green-panel pn">
+                            <div class="green-header">
+                                <h5>Contas</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-money fa-3x"></i></h1>
+                            <h5 class="mt"></h5>
+
+                            <a href="#"><button class="btn btn-small btn-theme04">Gerenciar</button></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /col-lg-9 END SECTION MIDDLE -->
+            <!-- **********************************************************************************************************************************************************
+                RIGHT SIDEBAR CONTENT
+                *********************************************************************************************************************************************************** -->
+            <div class="col-lg-3 ds">
+                <!--COMPLETED ACTIONS DONUTS CHART-->
+                <!--NEW EARNING STATS -->
+                <div class="panel terques-chart">
+                    <div class="panel-body">
+
+                        <div class="centered">
+                            <span>ALUGADOS</span>
+                            <strong>@ViewBag.aptOcupados DE @ViewBag.total APARTAMENTOS</strong>
+                        </div>
+                        <br>
+
+
+                    </div>
+                </div>
+                <!--new earning end-->
+                <!-- RECENT ACTIVITIES SECTION -->
+                <!-- CALENDAR-->
+                <div id="calendar" class="mb">
+                    <div class="panel green-panel no-margin">
+                        <div class="panel-body">
+                            <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+                                <div class="arrow"></div>
+                                <h3 class="popover-title" style="disadding: none;"></h3>
+                                <div id="date-popover-content" class="popover-content"></div>
+                            </div>
+                            <div id="my-calendar"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / calendar -->
+            </div>
+            <!-- /col-lg-3 -->
+        </div>
+        <!-- /row -->
+    </section>
+</section>

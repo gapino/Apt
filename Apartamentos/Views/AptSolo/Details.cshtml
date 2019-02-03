@@ -1,0 +1,170 @@
+﻿@model Apartamentos.Models.AptSolo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="#"><img src="~/Content/img/ana.jpg" class="img-circle" width="80"></a></p>
+            <h5 class="centered">Ana Amelia</h5>
+            <li class="mt">
+                <a href="/Apto/Home/Index">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-users"></i>
+                    <span>Pessoas</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/Persona/Index">Lista de Pessoas</a></li>
+                    <li><a href="/Apto/Persona/Create">Incluir Pessoa</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a class="active" href="javascript:;">
+                    <i class="fa fa-home"></i>
+                    <span>Apartamentos</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/AptSolo/Index">Lista de Apartamentos</a></li>
+                    <li><a href="/Apto/AptSolo/Create">Incluir Apartamento</a></li>
+                    <li><a href="/Apto/Apt/Index">Apartamentos Disponíveis</a></li>
+                    <li><a href="/Apto/Apt/Index1">Apartamentos Alugados</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="row mt">
+            <!-- /col-lg-12 -->
+
+            <div class="col-lg-12 mt">
+                <div class="border-head">
+                    <h3>DETALHES DO APARTAMENTO</h3>
+                </div>
+                <div class="row content-panel">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs nav-justified">
+
+                            <li class="active">
+                                <a data-toggle="tab" href="#edit">DETALHES DO APARTAMENTO</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /panel-heading -->
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="edit" class="tab-pane active">
+                                <div class="row">
+                                    <div class="col-lg-8 col-lg-offset-2 detailed">
+                                        <h4 class="mb">Dados do Apartamento</h4>
+                                        <form role="form" class="form-horizontal">
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Descrição</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Descripcion" name="Descripcion" value="@Model.Descripcion" readonly class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Preço</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Precio" name="Precio" maxlength="7" value="@Model.Precio" readonly class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <h4 class="mb">Fotos</h4>
+
+                                            <div class="row mt">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                                                    <div class="project-wrapper">
+                                                        <div class="project">
+                                                            <div class="photo-wrapper">
+                                                                <div class="photo">
+                                                                    @if (!string.IsNullOrEmpty(Model.Foto1))
+                                                                    {
+                                                                        <a class="fancybox" href="@Url.Content(Model.Foto1)"><img class="img-responsive" src="@Url.Content(Model.Foto1)" alt=""></a>
+                                                                    }
+                                                                </div>
+                                                                <div class="overlay"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- col-lg-4 -->
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                                                    <div class="project-wrapper">
+                                                        <div class="project">
+                                                            <div class="photo-wrapper">
+                                                                <div class="photo">
+                                                                    @if (!string.IsNullOrEmpty(Model.Foto2))
+                                                                    {
+                                                                        <a class="fancybox" href="@Url.Content(Model.Foto2)"><img class="img-responsive" src="@Url.Content(Model.Foto2)" alt=""></a>
+                                                                    }
+                                                                </div>
+                                                                <div class="overlay"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- col-lg-4 -->
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                                                    <div class="project-wrapper">
+                                                        <div class="project">
+                                                            <div class="photo-wrapper">
+                                                                <div class="photo">
+                                                                    @if (!string.IsNullOrEmpty(Model.Foto3))
+                                                                    {
+                                                                        <a class="fancybox" href="@Url.Content(Model.Foto3)"><img class="img-responsive" src="@Url.Content(Model.Foto3)" alt=""></a>
+                                                                    }
+                                                                </div>
+                                                                <div class="overlay"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- col-lg-4 -->
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                                <!-- /col-lg-8 -->
+                            </div>
+                            <!-- /row -->
+                        </div>
+                        <div class="row mt">
+
+                            <div class="col-lg-offset-2 col-lg-10">
+
+                                <a href="/Apto/AptSolo/Index"><button class="btn btn-theme04" type="button">Retornar</button></a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /tab-content -->
+                </div>
+                <!-- /panel-body -->
+            </div>
+            <!-- /col-lg-12 -->
+        </div>
+        <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
+    <!-- /wrapper -->
+</section>

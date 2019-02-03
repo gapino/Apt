@@ -1,0 +1,58 @@
+﻿@model Apartamentos.Models.Cuentas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cuentas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlugueHistory.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlugueHistory.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apt.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apt.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CuentasID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

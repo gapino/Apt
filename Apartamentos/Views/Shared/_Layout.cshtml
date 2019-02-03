@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>@ViewBag.Title -Alugues de Ana</title>
+
+    <link href="~/Content/img/favicon.png" rel="icon">
+    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    @Styles.Render("~/bundles/lib/corecss")
+    @Styles.Render("~/bundles/lib/externalcss")
+    @Styles.Render("~/bundles/css1")
+    @Scripts.Render("~/bundles/head")
+
+
+</head>
+<body>
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="/Apto/Home/Index" class="logo"><b>Aparta<span>mentos</span></b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <!--  notification end -->
+            </div>
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    @*<li><a class="logout" href="login.html">Logout</a></li>*@
+                </ul>
+            </div>
+        </header>
+
+
+        @RenderBody()
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    &copy; Copyrights <strong>Ing. Guillermo A. Pino Gonzalez</strong>. All Rights Reserved
+                </p>
+                <div class="credits">
+
+                    Apartamentos Ana
+                </div>
+                <a href="/Apto/Home/Index#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+
+    </section>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <script type="application/javascript">
+        $(document).ready(function() {
+          $("#date-popover").popover({
+            html: true,
+            trigger: "manual"
+          });
+          $("#date-popover").hide();
+          $("#date-popover").click(function(e) {
+            $(this).hide();
+          });
+
+          $("#my-calendar").zabuto_calendar({
+            action: function() {
+              return myDateFunction(this.id, false);
+            },
+            action_nav: function() {
+              return myNavFunction(this.id);
+            },
+            ajax: {
+              url: "show_data.php?action=1",
+              modal: true
+            },
+            legend: [{
+                type: "text",
+                label: "Special event",
+                badge: "00"
+              },
+              {
+                type: "block",
+                label: "Regular event",
+              }
+            ]
+          });
+        });
+
+        function myNavFunction(id) {
+          $("#date-popover").hide();
+          var nav = $("#" + id).data("navigation");
+          var to = $("#" + id).data("to");
+          console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var oTable = $('#hidden-table-info').dataTable({
+                "aoColumnDefs": [{
+                    "bSortable": false,
+                    "aTargets": [0]
+                }],
+                "aaSorting": [
+                    [0, 'asc']
+                ]
+            });
+
+        });
+    </script>
+   
+   
+    <script type="text/javascript">
+        $(function () {
+            //    fancybox
+            jQuery(".fancybox").fancybox();
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

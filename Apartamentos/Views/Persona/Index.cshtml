@@ -1,0 +1,148 @@
+﻿
+@model IEnumerable<Apartamentos.Models.Persona>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="#"><img src="~/Content/img/ana.jpg" class="img-circle" width="80"></a></p>
+            <h5 class="centered">Ana Amelia</h5>
+            <li class="mt">
+                <a href="/Apto/Home/Index">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a class="active" href="javascript:;">
+                    <i class="fa fa-users"></i>
+                    <span>Pessoas</span>
+                </a>
+                <ul class="sub">
+                    <li class="active"><a href="/Apto/Persona/Index">Lista de Pessoas</a></li>
+                    <li><a href="/Apto/Persona/Create">Incluir Pessoa</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-home"></i>
+                    <span>Apartamentos</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/AptSolo/Index">Lista de Apartamentos</a></li>
+                    <li><a href="/Apto/AptSolo/Create">Incluir Apartamento</a></li>
+                    <li><a href="/Apto/Apt/Index">Apartamentos Disponíveis</a></li>
+                    <li><a href="/Apto/Apt/Index1">Apartamentos Alugados</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i>Lista de Pessoas</h3>
+        <div class="row mb">
+            <a class="btn btn-success btn-sm pull-left" href="/Apto/Persona/Create">Incluir Pessoa</a>
+        </div>
+        <div class="row mb">
+            <!-- page start-->
+            <div class="content-panel">
+                <div class="adv-table">
+                    <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                        <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Nome Completo</th>
+                                <th>Registro Geral (RG)</th>
+                                <th>CPF</th>
+                                <th>Telefone</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @{ var contador = 0;}
+                            @foreach (var item in Model)
+                            {
+                                { contador = contador + 1; }
+                                <tr class="gradeA">
+                                    <td><input type="hidden" id="Id" value="@item.PersonaID">@contador</td>
+                                    <td id="Nombre">@item.Nombre</td>
+                                    <td id="Rg">@item.Rg</td>
+                                    <td id="Cpf">@item.Cpf</td>
+                                    <td id="Telefone">@item.Telefone</td>
+                                    <td id="Email">@item.Email</td>
+                                    <td>
+
+                                        <a href="/Apto/Persona/Details/@item.PersonaID"><button class="btn btn-success btn-xs fa fa-check"></button></a>
+                                        <a href="/Apto/Persona/Edit/@item.PersonaID"><button class="btn btn-primary btn-xs fa fa-pencil"></button></a>
+                                        <a><button class="btn btn-danger btn-xs fa fa-trash persona" data-toggle="modal" data-target="#myModal"></button></a>
+                                        <a href="/Apto/Apt/Index/@item.PersonaID"><button class="btn btn-primary btn-xs fa fa-home"></button></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">ADVERTÊNCIA</h4>
+                        </div>
+                        <div class="modal-body">
+
+
+                        </div>
+                        <div class="modal-footer">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page end-->
+        </div>
+        <!-- /row -->
+    </section>
+    <!-- /wrapper -->
+</section>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".persona").click(function () {
+                var nameId = $(this).closest('tr').find('#Id').val();
+                var nameTxt = $(this).closest('tr').find('#Nombre').text();
+                var nameRg = $(this).closest('tr').find('#Rg').text();
+                var nameCpf = $(this).closest('tr').find('#Cpf').text();
+                var nameTelefone = $(this).closest('tr').find('#Telefone').text();
+                var nameEmail = $(this).closest('tr').find('#Email').text();
+
+                $(".modal-body").empty();
+                $(".modal-footer").empty();
+                $(".modal-body").append("<h5 class='mb'>Você tem certeza de que deseja excluir o registro com os seguentes dados:</h5>")
+
+                $(".modal-body").append("<p> Nome: " + nameTxt + "</p>");
+                $(".modal-body").append("<p> RG: " + nameRg + "</p>");
+                $(".modal-body").append("<p> CPF: " + nameCpf + "</p>");
+                $(".modal-body").append("<p> Telefone: " + nameTelefone + "</p>");
+                $(".modal-body").append("<p> Email: " + nameEmail + "</p>");
+
+                $(".modal-footer").append("<button type='button' class='btn btn -default' data-dismiss='modal'>Cancelar</button>");
+                $(".modal-footer").append('<a href="/Apto/Persona/Delete/' + nameId + '"><button type="button" class="btn btn-primary">Apagar</button></a>');
+            });
+
+        });
+
+
+    </script>
+}

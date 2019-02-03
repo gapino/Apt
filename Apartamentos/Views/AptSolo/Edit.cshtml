@@ -1,0 +1,159 @@
+﻿@model Apartamentos.Models.AptSolo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="#"><img src="~/Content/img/ana.jpg" class="img-circle" width="80"></a></p>
+            <h5 class="centered">Ana Amelia</h5>
+            <li class="mt">
+                <a href="/Apto/Home/Index">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-users"></i>
+                    <span>Pessoas</span>o
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/Persona/Index">Lista de Pessoas</a></li>
+                    <li><a href="/Apto/Persona/Create">Incluir Pessoa</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a class="active" href="javascript:;">
+                    <i class="fa fa-home"></i>
+                    <span>Apartamentos</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/AptSolo/Index">Lista de Apartamentos</a></li>
+                    <li><a href="/Apto/AptSolo/Create">Incluir Apartamento</a></li>
+                    <li><a href="/Apto/Apt/Index">Apartamentos Disponíveis</a></li>
+                    <li><a href="/Apto/Apt/Index1">Apartamentos Alugados</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="row mt">
+            <!-- /col-lg-12 -->
+
+            <div class="col-lg-12 mt">
+                <div class="border-head">
+                    <h3>EDITAR APARTAMENTO</h3>
+                </div>
+                <div class="row content-panel">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs nav-justified">
+
+                            <li class="active">
+                                <a data-toggle="tab" href="#edit">EDITAR APARTAMENTO</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /panel-heading -->
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="edit" class="tab-pane active">
+                                <div class="row">
+                                    <div class="col-lg-8 col-lg-offset-2 detailed">
+                                        <h4 class="mb">Dados do Apartamento</h4>
+                                        <form role="form" class="form-horizontal" method="post" action="/Apto/AptSolo/Edit" enctype="multipart/form-data">
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Descrição</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Descripcion" name="Descripcion" value="@Model.Descripcion" class="form-control">
+                                                    <input type="hidden" placeholder=" " id="Id" name="Id" value="@Model.AptSoloID" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Preço</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Precio" name="Precio" maxlength="7" value="@Model.Precio" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <h4 class="mb">Fotos</h4>
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Foto 1</label>
+                                                <div class="controls col-md-9">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <span class="btn btn-theme02 btn-file">
+                                                            <span class="fileupload-new"><i class="fa fa-paperclip"></i>Selecione a foto</span>
+                                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Mudar</span>
+                                                            <input type="file" class="default" id="Foto1" name="Foto1" />
+                                                        </span>
+                                                        <span class="fileupload-preview" style="margin-left:5px;"></span>
+                                                        <a href="advanced_form_components.html#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Foto 2</label>
+                                                <div class="controls col-md-9">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <span class="btn btn-theme02 btn-file">
+                                                            <span class="fileupload-new"><i class="fa fa-paperclip"></i>Selecione a foto</span>
+                                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Mudar</span>
+                                                            <input type="file" class="default" id="Foto2" name="Foto2" />
+                                                        </span>
+                                                        <span class="fileupload-preview" style="margin-left:5px;"></span>
+                                                        <a href="advanced_form_components.html#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Foto 3</label>
+                                                <div class="controls col-md-9">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <span class="btn btn-theme02 btn-file">
+                                                            <span class="fileupload-new"><i class="fa fa-paperclip"></i>Selecione a foto</span>
+                                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Mudar</span>
+                                                            <input type="file" class="default" id="Foto3" name="Foto3" />
+                                                        </span>
+                                                        <span class="fileupload-preview" style="margin-left:5px;"></span>
+                                                        <a href="advanced_form_components.html#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:5px;"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button class="btn btn-theme" type="submit">Salvar</button>
+                                                    <a href="/Apto/AptSolo/Index"><button class="btn btn-theme04" type="button">Cancelar</button></a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /col-lg-8 -->
+                                </div>
+                                <!-- /row -->
+                            </div>
+                        </div>
+                        <!-- /tab-content -->
+                    </div>
+                    <!-- /panel-body -->
+                </div>
+                <!-- /col-lg-12 -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
+    <!-- /wrapper -->
+</section>

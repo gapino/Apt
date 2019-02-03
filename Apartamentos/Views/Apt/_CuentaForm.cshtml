@@ -1,0 +1,48 @@
+﻿
+@model Apartamentos.Models.Cuentas
+
+<h4 class="mb">Dados do Apartamento</h4>
+<div class="row mb">
+
+
+        <div class="col-lg-8 col-lg-offset-2 detailed">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row mb">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Tipo, "Nome da Conta", htmlAttributes: new { @class = "col-lg-4" })
+                    <div class="col-lg-6">
+                        @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row mb">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Monto, "Valor da Conta", htmlAttributes: new { @class = "col-lg-4" })
+                    <div class="col-lg-6">
+                        @Html.EditorFor(model => model.Monto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Monto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row mb">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fecha, "Data", htmlAttributes: new { @class = "col-lg-4" })
+                    <div class="col-lg-6">
+                        <div data-date-viewmode="years" data-date-format="dd/mm/yyyy" data-date="@DateTime.Now.ToShortDateString()" class="input-append date dpYears">
+                            @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @size = "16" } })
+
+                            <span class="input-group-btn add-on">
+                                <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(model => model.AptsIdentificador, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                   
+                </div>
+            </div>
+        </div>
+
+
+</div>

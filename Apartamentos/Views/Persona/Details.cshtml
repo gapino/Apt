@@ -1,0 +1,135 @@
+﻿@model Apartamentos.Models.Persona
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="#"><img src="~/Content/img/ana.jpg" class="img-circle" width="80"></a></p>
+            <h5 class="centered">Ana Amelia</h5>
+            <li class="mt">
+                <a href="/Apto/Home/Index">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a class="active" href="javascript:;">
+                    <i class="fa fa-users"></i>
+                    <span>Pessoas</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/Persona/Index">Lista de Pessoas</a></li>
+                    <li><a href="/Apto/Persona/Create">Incluir Pessoa</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-home"></i>
+                    <span>Apartamentos</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="/Apto/AptSolo/Index">Lista de Apartamentos</a></li>
+                    <li><a href="/Apto/AptSolo/Create">Incluir Apartamento</a></li>
+                    <li><a href="/Apto/Apt/Index">Apartamentos Disponíveis</a></li>
+                    <li><a href="/Apto/Apt/Index1">Apartamentos Alugados</a></li>
+                    
+                </ul>
+            </li>
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="row mt">
+            <!-- /col-lg-12 -->
+
+            <div class="col-lg-12 mt">
+                <div class="border-head">
+                    <h3>DETALHES DA PESSOA</h3>
+                </div>
+                <div class="row content-panel">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs nav-justified">
+
+                            <li class="active">
+                                <a data-toggle="tab" href="#edit">DETALHES DA PESSOA</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /panel-heading -->
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="edit" class="tab-pane active">
+                                <div class="row">
+                                    <div class="col-lg-8 col-lg-offset-2 detailed">
+                                        <h4 class="mb">Dados pessoais</h4>
+                                        <form role="form" class="form-horizontal">
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Nome Completo</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Nombre" name="Nombre" value="@Model.Nombre" readonly class="form-control">
+                                                    <input type="hidden" placeholder=" " id="Id" name="Id" value="@Model.PersonaID" readonly class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Registro Geral</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Rg" name="Rg" value="@Model.Rg" maxlength="7" readonly class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">CPF</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Cpf" name="Cpf" value="@Model.Cpf" maxlength="11" readonly pattern="[0-9]+" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <h4 class="mb">INFORMAÇÃO DE CONTATO</h4>
+
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Telefone</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Telefone" name="Telefone" value="@Model.Telefone" readonly class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-lg-2 control-label">Email</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder=" " id="Email" name="Email" value="@Model.Email" readonly class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+
+                                                    <a href="/Apto/Persona/Index"><button class="btn btn-theme04" type="button">Retornar</button></a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- /col-lg-8 -->
+                                </div>
+                                <!-- /row -->
+                            </div>
+                        </div>
+                        <!-- /tab-content -->
+                    </div>
+                    <!-- /panel-body -->
+                </div>
+                <!-- /col-lg-12 -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
+    <!-- /wrapper -->
+</section>
