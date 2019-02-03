@@ -397,7 +397,6 @@
     <Content Include="Scripts\lib\xchart\xcharts.css" />
     <Content Include="Scripts\lib\xchart\xcharts.min.js" />
     <Content Include="Scripts\lib\zabuto_calendar.js" />
-    <Content Include="Views\Apt\advanced_form_components.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
